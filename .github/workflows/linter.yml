@@ -1,0 +1,36 @@
+name: linter
+
+on:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - v1.**
+    paths:
+     - '**.js'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: make install
+        env:
+          CI: true
+
+      - name: Run Linter
+        run: make lint
