@@ -7,6 +7,9 @@ test: # Run tests
 test-watch: # Run tests with watch
 	npm test -s -- --watch
 
+test-coverage: # Run coverage test
+	npm test -- --coverage --coverageProvider=v8
+
 lint: # Run linter
 	npx eslint .
 
