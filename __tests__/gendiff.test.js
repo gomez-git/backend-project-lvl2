@@ -2,45 +2,47 @@ import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { genDiffFromFiles } from '../lib/gendiff.js';
-import stylish from '../lib/formatters/stylish.js';
+import formatter from '../lib/formatters/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-test('testing json', () => {
-  const expected = `${readFile('expected-file.json')}`;
-  const filepath1 = 'file1.json';
-  const filepath2 = 'file2.json';
-  const ext1 = path.extname(filepath1);
-  const ext2 = path.extname(filepath2);
-  const file1 = readFile(filepath1);
-  const file2 = readFile(filepath2);
+describe('stylish format', () => {
+  const expected = `${readFile('expected-stylish-file.json')}`;
 
-  expect(stylish(genDiffFromFiles(file1, file2, ext1, ext2))).toEqual(expected);
+  test.each([
+    ['file1.json', 'file2.json'],
+    ['file1.yml', 'file2.yaml'],
+    ['file1.json', 'file2.yaml'],
+  ])('stylish', (filepath1, filepath2) => {
+    const ext1 = path.extname(filepath1);
+    const ext2 = path.extname(filepath2);
+    const file1 = readFile(filepath1);
+    const file2 = readFile(filepath2);
+    const diff = genDiffFromFiles(file1, file2, ext1, ext2);
+    const formattedDiff = formatter('stylish', diff);
+
+    expect(formattedDiff).toEqual(expected);
+  });
 });
 
-test('testing yaml', () => {
-  const expected = `${readFile('expected-file.json')}`;
-  const filepath1 = 'file1.yml';
-  const filepath2 = 'file2.yaml';
-  const ext1 = path.extname(filepath1);
-  const ext2 = path.extname(filepath2);
-  const file1 = readFile(filepath1);
-  const file2 = readFile(filepath2);
+describe('plain format', () => {
+  const expected = `${readFile('expected-plain-file.json')}`;
 
-  expect(stylish(genDiffFromFiles(file1, file2, ext1, ext2))).toEqual(expected);
-});
+  test.each([
+    ['file1.json', 'file2.json'],
+    ['file1.yml', 'file2.yaml'],
+    ['file1.json', 'file2.yaml'],
+  ])('plain', (filepath1, filepath2) => {
+    const ext1 = path.extname(filepath1);
+    const ext2 = path.extname(filepath2);
+    const file1 = readFile(filepath1);
+    const file2 = readFile(filepath2);
+    const diff = genDiffFromFiles(file1, file2, ext1, ext2);
+    const formattedDiff = formatter('plain', diff);
 
-test('testing mix files', () => {
-  const expected = `${readFile('expected-file.json')}`;
-  const filepath1 = 'file1.yml';
-  const filepath2 = 'file2.json';
-  const ext1 = path.extname(filepath1);
-  const ext2 = path.extname(filepath2);
-  const file1 = readFile(filepath1);
-  const file2 = readFile(filepath2);
-
-  expect(stylish(genDiffFromFiles(file1, file2, ext1, ext2))).toEqual(expected);
+    expect(formattedDiff).toEqual(expected);
+  });
 });
