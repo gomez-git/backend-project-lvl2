@@ -22,3 +22,5 @@ make install
 [![asciicast](https://asciinema.org/a/y062kKcChCyoLDjAiPDCwRTvH.svg)](https://asciinema.org/a/y062kKcChCyoLDjAiPDCwRTvH)
 ### Compare nested files in plain format
 [![asciicast](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6.svg)](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6)
+### Compare nested files in json format
+[![asciicast](https://asciinema.org/a/pwO9LYgrz6LpGyiS6wAACozqj.svg)](https://asciinema.org/a/pwO9LYgrz6LpGyiS6wAACozqj)
