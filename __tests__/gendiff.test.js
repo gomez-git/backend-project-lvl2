@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 import path from 'path';
-import { genDiffFromFiles } from '../lib/gendiff.js';
-import formatter from '../lib/formatters/index.js';
+import buildTree from '../lib/build-tree.js';
+import formatTree from '../lib/formatters/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,8 +25,8 @@ describe.each([
     const ext2 = path.extname(filepath2);
     const file1 = readFile(filepath1);
     const file2 = readFile(filepath2);
-    const diff = genDiffFromFiles(file1, file2, ext1, ext2);
-    const formattedDiff = formatter(format, diff);
+    const diff = buildTree(file1, file2, ext1, ext2);
+    const formattedDiff = formatTree(format, diff);
 
     expect(formattedDiff).toEqual(expected);
   });
