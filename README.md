@@ -6,7 +6,7 @@
 # Annotation
 This is my second JavaScript project based on Hexlet backend courses. I build a difference generator for flat and nested json and yaml files.
 
-You can use it as a script in termanal or as a library in your JavaScript project.
+You can use it as a script in terminal or as a library in your JavaScript project.
 ## How to install
 ```
 git clone git@github.com:gomez-git/backend-project-lvl2.git
@@ -23,4 +23,4 @@ make install
 ### Compare nested files in plain format
 [![asciicast](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6.svg)](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6)
 ### Compare nested files in json format
-[![asciicast](https://asciinema.org/a/pwO9LYgrz6LpGyiS6wAACozqj.svg)](https://asciinema.org/a/pwO9LYgrz6LpGyiS6wAACozqj)
+[![asciicast](https://asciinema.org/a/D2ijnHWLqPCb4OeOD1irNoApq.svg)](https://asciinema.org/a/D2ijnHWLqPCb4OeOD1irNoApq)
