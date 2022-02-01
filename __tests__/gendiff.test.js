@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 import path from 'path';
 import buildTree from '../lib/build-tree.js';
-import formatter from '../lib/formatters/index.js';
+import formatTree from '../lib/formatters/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +26,7 @@ describe.each([
     const file1 = readFile(filepath1);
     const file2 = readFile(filepath2);
     const diff = buildTree(file1, file2, ext1, ext2);
-    const formattedDiff = formatter(format, diff);
+    const formattedDiff = formatTree(format, diff);
 
     expect(formattedDiff).toEqual(expected);
   });
