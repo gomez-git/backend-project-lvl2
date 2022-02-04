@@ -1,5 +1,6 @@
 install: # Install dependencies
 	npm ci
+	npm link
 
 test: # Run tests
 	npm test -s
@@ -7,8 +8,8 @@ test: # Run tests
 test-watch: # Run tests with watch
 	npm test -s -- --watch
 
-test-coverage: # Run coverage test
-	npm test -- --coverage --coverageProvider=v8
+test-coverage: # Run coverage tests
+	npm test -s -- --coverage --coverageProvider=v8
 
 lint: # Run linter
 	npx eslint .
