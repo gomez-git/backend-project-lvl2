@@ -1,8 +1,7 @@
 import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 import path from 'path';
-import buildTree from '../lib/build-tree.js';
-import formatTree from '../lib/formatters/index.js';
+import genDiff from '../lib/gendiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,12 +20,11 @@ describe.each([
     ['file1.yml', 'file2.yaml'],
     ['file1.json', 'file2.yaml'],
   ])('compare %s with %s', (filepath1, filepath2) => {
-    const ext1 = path.extname(filepath1);
-    const ext2 = path.extname(filepath2);
-    const file1 = readFile(filepath1);
-    const file2 = readFile(filepath2);
-    const diff = buildTree(file1, file2, ext1, ext2);
-    const formattedDiff = formatTree(format, diff);
+    const formattedDiff = genDiff(
+      getFixturePath(filepath1),
+      getFixturePath(filepath2),
+      format,
+    );
 
     expect(formattedDiff).toEqual(expected);
   });
