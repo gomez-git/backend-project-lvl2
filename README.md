@@ -5,13 +5,37 @@
 [![test](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/test.yml/badge.svg)](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/test.yml)
 # Annotation
 This is my second JavaScript project based on Hexlet backend courses. I build a difference generator for flat and nested json and yaml files.
-
-You can use it as a script in terminal or as a library in your JavaScript project.
 ## How to install
 ```
 git clone git@github.com:gomez-git/backend-project-lvl2.git
 cd backend-project-lvl2
 make install
+```
+## How to use
+You can use it as a script in terminal or as a library in your JavaScript project. It supported json and yaml files. You can format difference in three styles: stylish (default), plain and json format.
+
+In terminal:
+
+Install dependencies with command `make install` in directory with my project.
+```
+$ gendiff -h
+Usage: gendiff [options] <filepath1> <filepath2>
+
+Compares two configuration files and shows a difference.
+
+Options:
+  -V, --version        output the version number
+  -f, --format [type]  output format (default: "stylish")
+  -h, --help           output usage information
+```
+In your project:
+
+Move library to your node_modules directory `mv backend-project-lvl2 your_project_name/node_modules/gendiff`.
+```
+import genDiff from 'gendiff';
+
+const diff = genDiff(filepath1, filepath2, format);
+console.log(diff);
 ```
 ## Preview of gendiff util
 ### Compare flat json files
@@ -23,4 +47,4 @@ make install
 ### Compare nested files in plain format
 [![asciicast](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6.svg)](https://asciinema.org/a/u5C1aqvMLqkF8cqsZv0FPTOT6)
 ### Compare nested files in json format
-[![asciicast](https://asciinema.org/a/D2ijnHWLqPCb4OeOD1irNoApq.svg)](https://asciinema.org/a/D2ijnHWLqPCb4OeOD1irNoApq)
+[![asciicast](https://asciinema.org/a/eJjmih650SWb283kdzUFOC3zu.svg)](https://asciinema.org/a/eJjmih650SWb283kdzUFOC3zu)
