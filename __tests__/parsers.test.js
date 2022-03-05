@@ -2,12 +2,12 @@ import parse from '../lib/parsers.js';
 
 describe('parse file with unknown extention', () => {
   test.each([
-    ['file', '.txt'],
-    ['eslint', '.cjs'],
-    ['README', '.md'],
-  ])('%s%s', (filename, extention) => {
+    [''],
+    ['.cjs'],
+    ['.md'],
+  ])('extention: %s', (extention) => {
     expect(() => {
-      parse(extention, filename);
+      parse(extention, '');
     }).toThrow(`Unknown extention: '${extention}'!`);
   });
 });
