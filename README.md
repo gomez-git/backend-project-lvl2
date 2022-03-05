@@ -1,10 +1,10 @@
-[![Actions Status](https://github.com/gomez-git/backend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/gomez-git/backend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f10fc0b023d0434b2c55/maintainability)](https://codeclimate.com/github/gomez-git/backend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f10fc0b023d0434b2c55/test_coverage)](https://codeclimate.com/github/gomez-git/backend-project-lvl2/test_coverage)
+[![Actions Status](https://github.com/gomez-git/backend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/gomez-git/backend-project-lvl2/actions)
 [![linter](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/linter.yml/badge.svg)](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/linter.yml)
 [![test](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/test.yml/badge.svg)](https://github.com/gomez-git/backend-project-lvl2/actions/workflows/test.yml)
 # Annotation
-This is my second JavaScript project based on Hexlet backend courses. I build a difference generator for flat and nested json and yaml files.
+This is my second JavaScript project based on Hexlet backend courses. I built a difference generator for flat and nested json and yaml files.
 ## How to install
 ```
 git clone git@github.com:gomez-git/backend-project-lvl2.git
@@ -12,7 +12,7 @@ cd backend-project-lvl2
 make install
 ```
 ## How to use
-You can use it as a script in terminal or as a library in your JavaScript project. It supported json and yaml files. You can format difference in three styles: stylish (default), plain and json format.
+You can use it as a script in terminal or as a library in your JavaScript project. It support json and yaml files. You can format difference in three styles: stylish (default), plain and json.
 
 In terminal:
 
@@ -30,7 +30,7 @@ Options:
 ```
 In your project:
 
-Move library to your node_modules directory `mv backend-project-lvl2 your_project_name/node_modules/gendiff`.
+Install dependencies with command `make install` in directory with my project. Move library to your node_modules directory: `mv backend-project-lvl2 path/to/your/project/node_modules/gendiff`
 ```
 import genDiff from 'gendiff';
 
