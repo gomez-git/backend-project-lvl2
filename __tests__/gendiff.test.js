@@ -9,8 +9,8 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
 describe.each([
-  ['stylish', 'expected-stylish-file.json'],
-  ['plain', 'expected-plain-file.json'],
+  ['stylish', 'expected-stylish-file.md'],
+  ['plain', 'expected-plain-file.md'],
   ['json', 'expected-json-file.json'],
 ])('gendiff in %s format', (format, filename3) => {
   const expectedValue = readFile(filename3);
@@ -19,6 +19,7 @@ describe.each([
     ['file1.json', 'file2.json'],
     ['file1.yml', 'file2.yaml'],
     ['file1.json', 'file2.yaml'],
+    ['file1.yml', 'file2.ini'],
   ])('compare %s with %s', (filename1, filename2) => {
     const actualValue = genDiff(
       getFixturePath(filename1),
