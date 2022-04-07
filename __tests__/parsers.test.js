@@ -7,7 +7,7 @@ describe('parse file with unknown extention', () => {
     ['.md'],
   ])('extention: %s', (extention) => {
     expect(() => {
-      parse(extention, '');
+      parse('', extention);
     }).toThrow(`Unknown extention: '${extention}'!`);
   });
 });
