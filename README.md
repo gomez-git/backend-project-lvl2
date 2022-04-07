@@ -10,6 +10,7 @@ This is my second JavaScript project based on Hexlet backend courses. I built a 
 git clone git@github.com:gomez-git/backend-project-lvl2.git
 cd backend-project-lvl2
 make install
+make test
 ```
 ## How to use
 You can use it as a script in terminal or as a library in your JavaScript project. It support json and yaml files. You can format difference in three styles: stylish (default), plain and json.
@@ -30,7 +31,7 @@ Options:
 ```
 In your project:
 
-Install dependencies with command `make install` in directory with my project. Move library to your node_modules directory: `mv backend-project-lvl2 path/to/your/project/node_modules/gendiff`
+Install dependencies with command `make install` in directory with my project. Move library to your node_modules directory: `mv backend-project-lvl2 /path/to/your/project/node_modules/gendiff`
 ```
 import genDiff from 'gendiff';
 
