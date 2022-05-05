@@ -11,8 +11,8 @@ const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 describe.each([
   ['stylish', 'expected-stylish-file.md'],
   ['plain', 'expected-plain-file.md'],
-  ['json', 'expected-json-file.json'],
-])('gendiff in %s format', (format, filename3) => {
+  ['json', 'expected-json-file.json', '  '],
+])('gendiff in %s format', (format, filename3, replacer) => {
   const expectedValue = readFile(filename3);
 
   test.each([
@@ -25,6 +25,7 @@ describe.each([
       getFixturePath(filename1),
       getFixturePath(filename2),
       format,
+      replacer,
     );
 
     expect(actualValue).toEqual(expectedValue);

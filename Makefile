@@ -3,16 +3,16 @@ install: # Install dependencies
 	npm link
 
 test: # Run tests
-	npm test -s
+	@npm test -s
 
 test-watch: # Run tests with watch
-	npm test -s -- --watch
+	@npm test -s -- --watch
 
 test-coverage: # Run coverage tests
-	npm test -s -- --coverage --coverageProvider=v8
+	@npm test -s -- --coverage --coverageProvider=v8
 
 lint: # Run linter
-	npx eslint .
+	@npx eslint .
 
 publish: # Publish npm package
-	npm publish --dry-run
+	@npm publish --dry-run
