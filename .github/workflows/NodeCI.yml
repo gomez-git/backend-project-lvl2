@@ -48,5 +48,4 @@ jobs:
           debug: true
 
       - name: Run Snyk to check for vulnerabilities
-        run: snyk test
-        run: snyk code test
+        run: snyk test; snyk code test
