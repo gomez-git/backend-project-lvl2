@@ -6,37 +6,42 @@
 # Annotation
 This is my second JavaScript project based on Hexlet backend courses. I built a difference generator for json, yaml and ini files.
 ## How to install
-```
+```bash
 git clone git@github.com:gomez-git/backend-project-lvl2.git
 cd backend-project-lvl2
 make install
 make test
 ```
 ## How to use
-You can use it as a script in terminal or as a library in your JavaScript project. It support json, yaml and ini files. You can format difference in three styles: stylish (default), plain and json with default or custom replacer.
+You can use it as a script in terminal or as a library in your JavaScript project. It supports json, yaml and ini files. You can format difference in three styles: stylish (default), plain and json. You can choose replacer: '    ' (default) or custom replacer and one of three sort orders: asc (default), desc and none.
 
 In terminal:
 
 Install dependencies with command `make install` in directory with my project.
-```
+```bash
 $ gendiff -h
 Usage: gendiff [options] <filepath1> <filepath2>
 
 Compares two configuration files and shows a difference.
 
 Options:
-  -V, --version          output the version number
-  -f, --format [type]    output format (default: "stylish")
-  -r, --replacer [char]  output replacer (default: "    ")
-  -h, --help             output usage information
+  -V, --version           output the version number
+  -f, --format [type]     output format (default: "stylish")
+  -r, --replacer [char]   output replacer (default: "    ")
+  -s, --sortOrder [type]  output sort (default: "asc")
+  -h, --help              output usage information
 ```
 In your project:
 
-Install dependencies with command `make install` in directory with my project. Move library to your node_modules directory: `mv backend-project-lvl2 /path/to/your/project/node_modules/gendiff`
+Install my package with:
+```bash
+npm install https://github.com/gomez-git/backend-project-lvl2
 ```
-import genDiff from 'gendiff';
+Try it in your project:
+```javascript
+import genDiff from '@hexlet/code';
 
-const diff = genDiff(filepath1, filepath2[, format[, replacer]]);
+const diff = genDiff(filepath1, filepath2[, { format, replacer, sortOrder }]);
 console.log(diff);
 ```
 ## Preview of gendiff util
