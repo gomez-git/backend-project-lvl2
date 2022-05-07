@@ -2,18 +2,16 @@ name: Node CI
 
 on:
   push:
-    branches:
-      - 'main'
-    tags:
-      - v1.**
-    paths:
-     - '**.js'
+    branches: 'main'
+    tags: v1.**
+    paths: '**.js'
   pull_request:
-    branches:
-      - 'main'
+    branches: 'main'
 
 env:
   CI: true
+  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 jobs:
   build:
@@ -22,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x, 16.x]
 
     steps:
       - name: Check out repository
@@ -45,13 +43,9 @@ jobs:
 
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make test-coverage
           debug: true
 
       - name: Run Snyk to check for vulnerabilities
-        run: snyk test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk test; snyk code test
