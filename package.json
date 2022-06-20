@@ -35,6 +35,6 @@
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
-    "jest": "^27.5.1"
+    "jest": "^28.1.1"
   }
 }
