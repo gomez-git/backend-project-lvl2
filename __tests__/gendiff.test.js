@@ -12,7 +12,7 @@ const files = [
   ['file1.json', 'file2.json'],
   ['file1.yml', 'file2.yaml'],
   ['file1.json', 'file2.yaml'],
-  ['file1.yml', 'file2.ini'],
+  ['file1.ini', 'file2.ini'],
 ];
 
 describe('default values', () => {
